@@ -18,7 +18,7 @@ public class ExceptionHandler
         switch (e.getResponse().getErrorCode()) {
             case HTTP_400: {
                 return Response.status(Response.Status.BAD_REQUEST)
-                        .entity(new ExceptionResponse(e.getResponse().getErrorCode(), e.getExceptionMessage(), null))
+                        .entity(new ExceptionResponse(e.getResponse().getErrorCode(), e.getResponse().getErrorMessage(), null))
                         .build();
             }
             default:{
