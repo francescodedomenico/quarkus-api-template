@@ -62,16 +62,24 @@ public BadRequestException(String message) {
 switch (e.getResponse().getErrorCode()) {
             case HTTP_400: {
                 return Response.status(Response.Status.BAD_REQUEST)
-                    .entity(
-                        new ExceptionResponse(
-                            e.getResponse().getErrorCode(),
-                            e.getResponse().getErrorMessage(),
-                            null)
-                    ).build();
+                               .entity(
+                                    new ExceptionResponse(
+                                        e.getResponse().getErrorCode(),
+                                        e.getResponse().getErrorMessage(),
+                                        null))
+                                .build();
 }
 case ...
 
 ```
+
+## OpenAPI 3.0 and Swagger-ui
+You may access the generated swagger in both __yaml__ and __json__ format through these endpoints
+* /q/openapi
+* /q/openapi?format=json
+
+Swagger-UI is available at:
+* /q/swagger-ui
 
 ## Building and running Docker image
 

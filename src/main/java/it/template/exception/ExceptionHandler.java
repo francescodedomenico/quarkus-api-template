@@ -18,12 +18,13 @@ public class ExceptionHandler
         switch (e.getResponse().getErrorCode()) {
             case HTTP_400: {
                 return Response.status(Response.Status.BAD_REQUEST)
-                        .entity(new ExceptionResponse(e.getResponse().getErrorCode(), e.getResponse().getErrorMessage(), null))
+                        .entity(new ExceptionResponse(e.getResponse().getErrorCode(), e.getResponse().getErrorMessage(),
+                                null))
                         .build();
             }
-            default:{
+            default: {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                        .entity(new ExceptionResponse(ErrorCode.HTTP_500, "" , e.getOriginalException()))
+                        .entity(new ExceptionResponse(ErrorCode.HTTP_500, "", e.getOriginalException()))
                         .build();
             }
         }
