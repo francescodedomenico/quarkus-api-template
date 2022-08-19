@@ -6,9 +6,9 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import it.template.exception.enums.ErrorCode;
 import it.template.exception.responses.ExceptionResponse;
 
-public class BadRequestException extends ApiException{
+public class BadRequestException extends ApiException {
     HttpResponseStatus status;
-    String message;
+    String exceptionMessage;
 
     public BadRequestException() {
         super();
@@ -24,7 +24,7 @@ public class BadRequestException extends ApiException{
         ExceptionResponse response = new ExceptionResponse(error, error.getDescription(), null);
         this.setResponse(response);
         this.status = HttpResponseStatus.BAD_REQUEST;
-        this.setMessage(message);
+        this.setExceptionMessage(message);
     }
 
     public HttpResponseStatus getStatus() {
@@ -35,12 +35,12 @@ public class BadRequestException extends ApiException{
         this.status = status;
     }
 
-    public String getMessage() {
-        return this.message;
+    public String getExceptionMessage() {
+        return this.exceptionMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setExceptionMessage(String message) {
+        this.exceptionMessage = message;
     }
 
     public BadRequestException status(HttpResponseStatus status) {
@@ -49,7 +49,7 @@ public class BadRequestException extends ApiException{
     }
 
     public BadRequestException message(String message) {
-        setMessage(message);
+        setExceptionMessage(message);
         return this;
     }
 
@@ -61,21 +61,21 @@ public class BadRequestException extends ApiException{
             return false;
         }
         BadRequestException badRequestException = (BadRequestException) o;
-        return Objects.equals(status, badRequestException.status) && Objects.equals(message, badRequestException.message);
+        return Objects.equals(status, badRequestException.status)
+                && Objects.equals(exceptionMessage, badRequestException.exceptionMessage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, message);
+        return Objects.hash(status, exceptionMessage);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " status='" + getStatus() + "'" +
-            ", message='" + getMessage() + "'" +
-            "}";
+                " status='" + getStatus() + "'" +
+                ", message='" + getExceptionMessage() + "'" +
+                "}";
     }
-
 
 }
