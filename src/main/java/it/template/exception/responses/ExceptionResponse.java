@@ -5,8 +5,9 @@ import java.util.Objects;
 
 import it.template.exception.enums.ErrorCode;
 
-public class ExceptionResponse implements Serializable{
+public class ExceptionResponse implements Serializable {
     ErrorCode errorCode;
+    String errorCodeDescription;
     String errorMessage;
     Exception exception;
 
@@ -15,6 +16,7 @@ public class ExceptionResponse implements Serializable{
 
     public ExceptionResponse(ErrorCode errorCode, String errorMessage, Exception exception) {
         this.errorCode = errorCode;
+        this.errorCodeDescription = errorCode.getDescription();
         this.errorMessage = errorMessage;
         this.exception = exception;
     }
@@ -25,6 +27,14 @@ public class ExceptionResponse implements Serializable{
 
     public void setErrorCode(ErrorCode errorCode) {
         this.errorCode = errorCode;
+    }
+
+    public String getErrorCodeDescription() {
+        return this.errorCodeDescription;
+    }
+
+    public void setErrorCodeDescription(String errorCodeDescription) {
+        this.errorCodeDescription = errorCodeDescription;
     }
 
     public String getErrorMessage() {
@@ -66,7 +76,9 @@ public class ExceptionResponse implements Serializable{
             return false;
         }
         ExceptionResponse exceptionResponse = (ExceptionResponse) o;
-        return Objects.equals(errorCode, exceptionResponse.errorCode) && Objects.equals(errorMessage, exceptionResponse.errorMessage) && Objects.equals(exception, exceptionResponse.exception);
+        return Objects.equals(errorCode, exceptionResponse.errorCode)
+                && Objects.equals(errorMessage, exceptionResponse.errorMessage)
+                && Objects.equals(exception, exceptionResponse.exception);
     }
 
     @Override
@@ -77,10 +89,10 @@ public class ExceptionResponse implements Serializable{
     @Override
     public String toString() {
         return "{" +
-            " errorCode='" + getErrorCode() + "'" +
-            ", errorMessage='" + getErrorMessage() + "'" +
-            ", exception='" + getException() + "'" +
-            "}";
+                " errorCode='" + getErrorCode() + "'" +
+                ", errorMessage='" + getErrorMessage() + "'" +
+                ", exception='" + getException() + "'" +
+                "}";
     }
 
 }

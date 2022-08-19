@@ -6,6 +6,7 @@ import it.template.exception.responses.ExceptionResponse;
 
 public class ApiException extends RuntimeException{
     ExceptionResponse response;
+    String exceptionMessage;
     Exception originalException;
 
     public ApiException() {
@@ -26,6 +27,14 @@ public class ApiException extends RuntimeException{
 
     public Exception getOriginalException() {
         return this.originalException;
+    }
+
+    public String getExceptionMessage() {
+        return this.exceptionMessage;
+    }
+
+    public void setExceptionMessage(String exceptionMessage){
+        this.exceptionMessage = exceptionMessage;
     }
 
     public void setOriginalException(Exception originalException) {
