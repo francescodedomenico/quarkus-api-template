@@ -20,7 +20,7 @@ public class GreetingResource {
     @Path("/hello")
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello from RESTEasy Reactive, prova prova";
+        return "Hello from RESTEasy Reactive";
     }
     @GET
     @Operation(
@@ -31,6 +31,5 @@ public class GreetingResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String testException() {
         throw new BadRequestException("Testing BAD_REQUEST");
-        //return "Hello from RESTEasy Reactive, prova prova";
     }
 }

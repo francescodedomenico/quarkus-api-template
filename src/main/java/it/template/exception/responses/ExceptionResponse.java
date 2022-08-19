@@ -3,8 +3,10 @@ package it.template.exception.responses;
 import java.io.Serializable;
 import java.util.Objects;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import it.template.exception.enums.ErrorCode;
 
+@RegisterForReflection
 public class ExceptionResponse implements Serializable {
     ErrorCode errorCode;
     String errorCodeDescription;
