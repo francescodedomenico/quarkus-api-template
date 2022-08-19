@@ -8,7 +8,7 @@ import it.template.exception.responses.ExceptionResponse;
 
 public class BadRequestException extends ApiException {
     HttpResponseStatus status;
-    String exceptionMessage;
+    
 
     public BadRequestException() {
         super();
