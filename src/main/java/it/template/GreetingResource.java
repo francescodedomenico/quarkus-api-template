@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import it.template.exception.throwables.BadRequestException;
+import it.template.model.ExampleModel;
 
 @Path("/")
 public class GreetingResource {
@@ -31,5 +32,16 @@ public class GreetingResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String testException() {
         throw new BadRequestException("Testing BAD_REQUEST");
+    }
+    @GET
+    @Operation(
+        summary = "Endpoint to test Exception handler",
+        description = "Endpoint to test Exception handle"
+    )
+    @Path("/example_model")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ExampleModel getExample() {
+        ExampleModel toReturn = new ExampleModel("fieldA", "fieldB");
+        return toReturn;
     }
 }
