@@ -7,7 +7,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 
-@Path("/hello")
+import it.template.exception.throwables.BadRequestException;
+
+@Path("/")
 public class GreetingResource {
 
     @GET
@@ -15,8 +17,20 @@ public class GreetingResource {
         summary = "Hello world API",
         description = "Hello World description"
     )
+    @Path("/hello")
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         return "Hello from RESTEasy Reactive, prova prova";
+    }
+    @GET
+    @Operation(
+        summary = "Endpoint to test Exception handler",
+        description = "Endpoint to test Exception handle"
+    )
+    @Path("/test_exception")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String testException() {
+        throw new BadRequestException("Testing BAD_REQUEST");
+        //return "Hello from RESTEasy Reactive, prova prova";
     }
 }
