@@ -5,6 +5,7 @@ It is a commodity repository meant to be cloned and adapted later to any further
 
 * OpenAPI 3.0 swagger generation
 * Exception handling
+* REST APIs
 * ...more to come
 
 ## Adaptation to your use
@@ -72,7 +73,7 @@ case ...
 
 ```
 
-## Building and running docker image
+## Building and running Docker image
 
 Prerequisites:
 * GraalVM 22.2.0
