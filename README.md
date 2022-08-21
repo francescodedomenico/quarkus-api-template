@@ -1,4 +1,4 @@
-# quarkus-api-template Project
+# quarkus-api-template
 
 This project aims to be a baseline for REST microservices development based on the Quarkus Frameworks.
 It is a commodity repository meant to be cloned and adapted later to any further use, this template ships with the features I require most during my everyday development activity such as:
