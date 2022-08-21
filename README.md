@@ -8,7 +8,9 @@ It is a commodity repository meant to be cloned and adapted later to any further
 * REST APIs
 * ...more to come
 
-## Adaptation to your use
+## Adaptation
+
+### Refactoring
 
 After cloning this repository you might want to customize it for your needs.
 Inside your __pom.xml__ you may edit the groudId and the artifactId
@@ -19,7 +21,24 @@ Inside your __pom.xml__ you may edit the groudId and the artifactId
 ```
 
 After that, by using a IDE of your choice, you may refactor the __it.template__ package name to your groupId.
-## Extending the Exception handling logic
+
+### Modifying the swagger/openapi properties
+
+You may find a handful of properties that are ready to be edited inside __application.properties__
+```
+##  SWAGGER PROPERTIES
+quarkus.smallrye-openapi.info-version=1.0.1
+quarkus.smallrye-openapi.info-description=Just an example service
+quarkus.smallrye-openapi.info-terms-of-service=Your terms here
+quarkus.smallrye-openapi.info-contact-email=techsupport@example.com
+quarkus.smallrye-openapi.info-contact-name=Quarkus REST Template Support
+quarkus.smallrye-openapi.info-contact-url=http://exampleurl.com/contact
+quarkus.smallrye-openapi.info-license-name=Apache 2.0
+quarkus.smallrye-openapi.info-license-url=https://www.apache.org/licenses/LICENSE-2.0.html
+```
+
+
+### Extending the Exception handling logic
 The Exception handling logic is nested inside the __ExceptionHandler.java__ file. It is built to catch Subclasses of the object ApiException and to return a response body that looks like 
 ```json
 {
